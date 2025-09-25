@@ -1,0 +1,129 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|c:\\github\\curriculumequipo7890\\classroom_dashboard_backend\\classroom_dashboard_backend\\classroom_dashboard_backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|solutionrelative:classroom_dashboard_backend\\classroom_dashboard_backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|c:\\github\\curriculumequipo7890\\classroom_dashboard_backend\\classroom_dashboard_backend\\services\\googleclassroomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|solutionrelative:classroom_dashboard_backend\\services\\googleclassroomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|c:\\github\\curriculumequipo7890\\classroom_dashboard_backend\\classroom_dashboard_backend\\controlers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|solutionrelative:classroom_dashboard_backend\\controlers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|c:\\github\\curriculumequipo7890\\classroom_dashboard_backend\\classroom_dashboard_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|solutionrelative:classroom_dashboard_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|c:\\github\\curriculumequipo7890\\classroom_dashboard_backend\\classroom_dashboard_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|solutionrelative:classroom_dashboard_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|c:\\github\\curriculumequipo7890\\classroom_dashboard_backend\\classroom_dashboard_backend\\models\\classroomdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB21B4E-84A8-4359-B246-CE7FAC68F827}|Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj|solutionrelative:classroom_dashboard_backend\\models\\classroomdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GoogleClassroomService.cs",
+              "DocumentMoniker": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Services\\GoogleClassroomService.cs",
+              "RelativeDocumentMoniker": "ClassRoom_Dashboard_Backend\\Services\\GoogleClassroomService.cs",
+              "ToolTip": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Services\\GoogleClassroomService.cs",
+              "RelativeToolTip": "ClassRoom_Dashboard_Backend\\Services\\GoogleClassroomService.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwBsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T17:47:13.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Controlers\\AuthController.cs",
+              "RelativeDocumentMoniker": "ClassRoom_Dashboard_Backend\\Controlers\\AuthController.cs",
+              "ToolTip": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Controlers\\AuthController.cs",
+              "RelativeToolTip": "ClassRoom_Dashboard_Backend\\Controlers\\AuthController.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAqwKAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T17:44:03.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Classroom_Dashboard_Backend.csproj",
+              "DocumentMoniker": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj",
+              "RelativeDocumentMoniker": "Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj",
+              "ToolTip": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj",
+              "RelativeToolTip": "Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-25T17:43:05.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\appsettings.json",
+              "RelativeDocumentMoniker": "ClassRoom_Dashboard_Backend\\appsettings.json",
+              "ToolTip": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\appsettings.json",
+              "RelativeToolTip": "ClassRoom_Dashboard_Backend\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-25T17:36:26.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ClassroomDBContext.cs",
+              "DocumentMoniker": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Models\\ClassroomDBContext.cs",
+              "RelativeDocumentMoniker": "ClassRoom_Dashboard_Backend\\Models\\ClassroomDBContext.cs",
+              "ToolTip": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Models\\ClassroomDBContext.cs",
+              "RelativeToolTip": "ClassRoom_Dashboard_Backend\\Models\\ClassroomDBContext.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAuwB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T17:35:40.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Program.cs",
+              "RelativeDocumentMoniker": "ClassRoom_Dashboard_Backend\\Program.cs",
+              "ToolTip": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Program.cs",
+              "RelativeToolTip": "ClassRoom_Dashboard_Backend\\Program.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T17:30:55.422Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

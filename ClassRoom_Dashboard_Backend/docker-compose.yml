@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-apc5tdrd}
+      POSTGRES_DB: ${POSTGRES_DB:-classroom_dashboard}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      # Connection string
+      ConnectionStrings__Default: Host=postgres;Database=${POSTGRES_DB:-classroom_dashboard};Username=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-apc5tdrd}
+      # JWT
+      JWT_ISSUER: ClassroomDashboard
+      JWT_AUDIENCE: ClassroomDashboardAudience
+      JWT_SECRET_KEY: change-this-secret-in-prod
+      # Google OAuth
+      GOOGLE_CLIENT_ID: your-client-id.apps.googleusercontent.com
+      GOOGLE_CLIENT_SECRET: your-client-secret
+      GOOGLE_REDIRECT_URI: https://your-domain.com/auth/oauth2/callback
+      # CORS
+      CORS_ALLOWED_ORIGINS: https://your-frontend.com
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    volumes:
+      - api-keys:/app/keys
+      - api-logs:/app/logs
+
+volumes:
+  pgdata:
+  api-keys:
+  api-logs:

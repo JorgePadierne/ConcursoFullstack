@@ -1,0 +1,27 @@
+### Test Health Endpoint (Público)
+GET https://localhost:5001/api/test/health
+
+### Test Me Endpoint (Requiere JWT)
+GET https://localhost:5001/api/me
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+### Test Courses Endpoint (Requiere JWT)
+GET https://localhost:5001/api/courses
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+### Test Dashboard Alumno (Requiere JWT)
+GET https://localhost:5001/api/dashboard/alumno
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+### Test Notifications Send (Requiere JWT)
+POST https://localhost:5001/api/notifications/send
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "message": "Mensaje de prueba",
+  "userEmail": "test@example.com"
+}
+
+### Iniciar OAuth con Google (Abre en navegador)
+GET https://localhost:5001/auth/google
