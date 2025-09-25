@@ -6,6 +6,7 @@ using Classroom_Dashboard_Backend.Services;
 using Serilog;
 using Microsoft.AspNetCore.RateLimiting;
 using System.Threading.RateLimiting;
+using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -202,7 +203,13 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
                       Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto
 });
 
-app.UseHttpsRedirection();
+// Allow disabling HTTPS redirection via config/env for local Docker/dev scenarios
+var disableHttpsRedirect = builder.Configuration.GetValue<bool>("DisableHttpsRedirect")
+    || (Environment.GetEnvironmentVariable("DISABLE_HTTPS_REDIRECT")?.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false);
+if (!disableHttpsRedirect)
+{
+    app.UseHttpsRedirection();
+}
 app.UseSerilogRequestLogging();
 app.UseRateLimiter();
 app.UseCors("DefaultCors");

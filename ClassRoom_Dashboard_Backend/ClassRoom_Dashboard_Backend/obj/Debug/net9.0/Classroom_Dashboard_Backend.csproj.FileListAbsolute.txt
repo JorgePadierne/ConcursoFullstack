@@ -1,145 +1,147 @@
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\appsettings.Development.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\appsettings.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.staticwebassets.endpoints.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.exe
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.deps.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.runtimeconfig.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.pdb
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Google.Apis.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Google.Apis.Auth.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Google.Apis.Classroom.v1.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Google.Apis.Core.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Humanizer.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.Build.Locator.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Mono.TextTemplating.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Newtonsoft.Json.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Npgsql.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.AspNetCore.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Extensions.Hosting.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Extensions.Logging.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Formatting.Compact.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Settings.Configuration.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Sinks.Console.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Sinks.File.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\System.CodeDom.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.AttributedModel.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.Convention.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.Hosting.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.Runtime.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.TypedParts.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.csproj.AssemblyReference.cache
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\rpswa.dswa.cache.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.GeneratedMSBuildEditorConfig.editorconfig
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.AssemblyInfoInputs.cache
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.AssemblyInfo.cs
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.csproj.CoreCompileInputs.cache
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.MvcApplicationPartsAssemblyInfo.cs
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.MvcApplicationPartsAssemblyInfo.cache
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.sourcelink.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\rjimswa.dswa.cache.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\scopedcss\bundle\Classroom_Dashboard_Backend.styles.css
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\staticwebassets.build.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\staticwebassets.build.json.cache
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\staticwebassets.development.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroo.4D7370F4.Up2Date
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\refint\Classroom_Dashboard_Backend.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.pdb
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.genruntimeconfig.cache
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\obj\Debug\net9.0\ref\Classroom_Dashboard_Backend.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\System.Management.dll
-C:\GitHub\CurriculumEquipo7890\Classroom_Dashboard_Backend\Classroom_Dashboard_Backend\bin\Debug\net9.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\appsettings.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\appsettings.Production.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.staticwebassets.endpoints.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.exe
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.deps.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.runtimeconfig.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Classroom_Dashboard_Backend.pdb
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\HealthChecks.NpgSql.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Google.Apis.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Google.Apis.Auth.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Google.Apis.Classroom.v1.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Google.Apis.Core.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Humanizer.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Npgsql.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.AspNetCore.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Extensions.Hosting.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Extensions.Logging.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Formatting.Compact.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Settings.Configuration.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Sinks.Console.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\Serilog.Sinks.File.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\System.CodeDom.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.Convention.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.Hosting.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.Runtime.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\System.Composition.TypedParts.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\System.Management.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\bin\Debug\net9.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.csproj.AssemblyReference.cache
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.AssemblyInfoInputs.cache
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.AssemblyInfo.cs
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.csproj.CoreCompileInputs.cache
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.sourcelink.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\scopedcss\bundle\Classroom_Dashboard_Backend.styles.css
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroo.4D7370F4.Up2Date
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\refint\Classroom_Dashboard_Backend.dll
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.pdb
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\Classroom_Dashboard_Backend.genruntimeconfig.cache
+C:\Users\jorge\Desktop\Nueva carpeta\ClassRoom_Dashboard_Backend\ClassRoom_Dashboard_Backend\obj\Debug\net9.0\ref\Classroom_Dashboard_Backend.dll

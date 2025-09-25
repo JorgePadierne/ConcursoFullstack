@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj": {}
+    "C:\\Users\\jorge\\Desktop\\Nueva carpeta\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj": {}
   },
   "projects": {
-    "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj": {
+    "C:\\Users\\jorge\\Desktop\\Nueva carpeta\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj",
+        "projectUniqueName": "C:\\Users\\jorge\\Desktop\\Nueva carpeta\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj",
         "projectName": "Classroom_Dashboard_Backend",
-        "projectPath": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj",
-        "packagesPath": "C:\\Users\\nesto\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\CurriculumEquipo7890\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend\\obj\\",
+        "projectPath": "C:\\Users\\jorge\\Desktop\\Nueva carpeta\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\Classroom_Dashboard_Backend.csproj",
+        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jorge\\Desktop\\Nueva carpeta\\ClassRoom_Dashboard_Backend\\ClassRoom_Dashboard_Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nesto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -66,13 +66,13 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Microsoft.AspNetCore.DataProtection.Extensions": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.8, )"
-            },
-            "Microsoft.AspNetCore.RateLimiting": {
-              "target": "Package",
-              "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

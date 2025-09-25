@@ -8,17 +8,33 @@
     ".NETCoreApp,Version=v9.0": {
       "Classroom_Dashboard_Backend/1.0.0": {
         "dependencies": {
+          "AspNetCore.HealthChecks.NpgSql": "8.0.1",
           "Google.Apis.Auth": "1.71.0",
           "Google.Apis.Classroom.v1": "1.70.0.3891",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.0",
+          "Microsoft.AspNetCore.DataProtection.Extensions": "9.0.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.8",
           "Microsoft.EntityFrameworkCore.Design": "9.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.0",
-          "Serilog.AspNetCore": "7.0.0"
+          "Serilog.AspNetCore": "7.0.0",
+          "Serilog.Sinks.Console": "5.0.1",
+          "Serilog.Sinks.File": "5.0.0"
         },
         "runtime": {
           "Classroom_Dashboard_Backend.dll": {}
+        }
+      },
+      "AspNetCore.HealthChecks.NpgSql/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.0",
+          "Npgsql": "9.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/HealthChecks.NpgSql.dll": {
+            "assemblyVersion": "8.0.1.0",
+            "fileVersion": "8.0.1.0"
+          }
         }
       },
       "Google.Apis/1.71.0": {
@@ -85,6 +101,25 @@
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.24.52903"
           }
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.Internal/9.0.0": {},
+      "Microsoft.AspNetCore.DataProtection/9.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.Internal": "9.0.0",
+          "Microsoft.AspNetCore.DataProtection.Abstractions": "9.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Options": "9.0.0",
+          "System.Security.Cryptography.Xml": "9.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.DataProtection.Abstractions/9.0.0": {},
+      "Microsoft.AspNetCore.DataProtection.Extensions/9.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "9.0.0",
+          "Microsoft.Extensions.DependencyInjection": "9.0.0"
         }
       },
       "Microsoft.AspNetCore.OpenApi/9.0.8": {
@@ -497,16 +532,33 @@
           }
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/7.0.0": {
+      "Microsoft.Extensions.Diagnostics.Abstractions/9.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Options": "9.0.0"
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Options": "9.0.0"
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/8.0.0": {},
+      "Microsoft.Extensions.FileProviders.Abstractions/9.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "9.0.0"
         }
       },
-      "Microsoft.Extensions.Hosting.Abstractions/7.0.0": {
+      "Microsoft.Extensions.Hosting.Abstractions/9.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "9.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "7.0.0"
+          "Microsoft.Extensions.Diagnostics.Abstractions": "9.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "9.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.0"
         }
       },
       "Microsoft.Extensions.Logging/9.0.0": {
@@ -644,11 +696,11 @@
           }
         }
       },
-      "Serilog/2.12.0": {
+      "Serilog/3.1.1": {
         "runtime": {
-          "lib/net6.0/Serilog.dll": {
+          "lib/net7.0/Serilog.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.12.0.0"
+            "fileVersion": "3.1.1.0"
           }
         }
       },
@@ -656,11 +708,11 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "9.0.0",
           "Microsoft.Extensions.Logging": "9.0.0",
-          "Serilog": "2.12.0",
+          "Serilog": "3.1.1",
           "Serilog.Extensions.Hosting": "7.0.0",
           "Serilog.Formatting.Compact": "1.1.0",
           "Serilog.Settings.Configuration": "7.0.0",
-          "Serilog.Sinks.Console": "4.0.1",
+          "Serilog.Sinks.Console": "5.0.1",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.File": "5.0.0"
         },
@@ -674,9 +726,9 @@
       "Serilog.Extensions.Hosting/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "9.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
-          "Serilog": "2.12.0",
+          "Serilog": "3.1.1",
           "Serilog.Extensions.Logging": "7.0.0"
         },
         "runtime": {
@@ -689,7 +741,7 @@
       "Serilog.Extensions.Logging/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Logging": "9.0.0",
-          "Serilog": "2.12.0"
+          "Serilog": "3.1.1"
         },
         "runtime": {
           "lib/net7.0/Serilog.Extensions.Logging.dll": {
@@ -700,7 +752,7 @@
       },
       "Serilog.Formatting.Compact/1.1.0": {
         "dependencies": {
-          "Serilog": "2.12.0"
+          "Serilog": "3.1.1"
         },
         "runtime": {
           "lib/netstandard2.0/Serilog.Formatting.Compact.dll": {
@@ -713,7 +765,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration.Binder": "7.0.0",
           "Microsoft.Extensions.DependencyModel": "9.0.0",
-          "Serilog": "2.12.0"
+          "Serilog": "3.1.1"
         },
         "runtime": {
           "lib/net7.0/Serilog.Settings.Configuration.dll": {
@@ -722,20 +774,20 @@
           }
         }
       },
-      "Serilog.Sinks.Console/4.0.1": {
+      "Serilog.Sinks.Console/5.0.1": {
         "dependencies": {
-          "Serilog": "2.12.0"
+          "Serilog": "3.1.1"
         },
         "runtime": {
-          "lib/net5.0/Serilog.Sinks.Console.dll": {
-            "assemblyVersion": "4.0.1.0",
-            "fileVersion": "4.0.1.0"
+          "lib/net7.0/Serilog.Sinks.Console.dll": {
+            "assemblyVersion": "5.0.1.0",
+            "fileVersion": "5.0.1.0"
           }
         }
       },
       "Serilog.Sinks.Debug/2.0.0": {
         "dependencies": {
-          "Serilog": "2.12.0"
+          "Serilog": "3.1.1"
         },
         "runtime": {
           "lib/netstandard2.1/Serilog.Sinks.Debug.dll": {
@@ -746,7 +798,7 @@
       },
       "Serilog.Sinks.File/5.0.0": {
         "dependencies": {
-          "Serilog": "2.12.0"
+          "Serilog": "3.1.1"
         },
         "runtime": {
           "lib/net5.0/Serilog.Sinks.File.dll": {
@@ -862,6 +914,12 @@
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "System.Security.Cryptography.Pkcs/9.0.0": {},
+      "System.Security.Cryptography.Xml/9.0.0": {
+        "dependencies": {
+          "System.Security.Cryptography.Pkcs": "9.0.0"
+        }
+      },
       "System.Text.Json/9.0.0": {},
       "System.Threading.Channels/7.0.0": {}
     }
@@ -871,6 +929,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AspNetCore.HealthChecks.NpgSql/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SQAXxr70LjGdDzSXsr2hxYqcBRhMTddL/kHRs5ftpysdVw6UQhY2/mHl4Q+6yd8ajJsQW5My4tmqk1/zyBAY8w==",
+      "path": "aspnetcore.healthchecks.npgsql/8.0.1",
+      "hashPath": "aspnetcore.healthchecks.npgsql.8.0.1.nupkg.sha512"
     },
     "Google.Apis/1.71.0": {
       "type": "package",
@@ -913,6 +978,34 @@
       "sha512": "sha512-bs+1Pq3vQdS2lTyxNUd9fEhtMsq3eLUpK36k2t56iDMVrk6OrAoFtvrQrTK0Y0OetTcJrUkGU7hBlf+ORzHLqQ==",
       "path": "microsoft.aspnetcore.authentication.jwtbearer/9.0.0",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Cryptography.Internal/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M1dzTEl+2+RqT4vWcqEpWasPXHd58wC93U7QMlmPSmx+qixyVxCQjZ183wr7Wa68b4pF7wC501MU9rdA0ZNhMg==",
+      "path": "microsoft.aspnetcore.cryptography.internal/9.0.0",
+      "hashPath": "microsoft.aspnetcore.cryptography.internal.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.DataProtection/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mrhTnqMHkaVmaNZOWobg7ior5BELrlC5dC2r3FMVwT0bfOlonOe76B83e3D98Cl/zR5Szhfok2BQmkw6xDvHfg==",
+      "path": "microsoft.aspnetcore.dataprotection/9.0.0",
+      "hashPath": "microsoft.aspnetcore.dataprotection.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.DataProtection.Abstractions/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o7JVGMXofZ4IuQdyoL0eKC1GnNmviZt2aI7CGHnQjqbz9hIrYim3DUfCKpvKaVzLWfzfgmwaXNg8Zx7fFQaBbA==",
+      "path": "microsoft.aspnetcore.dataprotection.abstractions/9.0.0",
+      "hashPath": "microsoft.aspnetcore.dataprotection.abstractions.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.DataProtection.Extensions/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Qh3JwHlI/yzZvgE5Teu5k/7wQGZdeqn2m8Zr3Hv6GqPk7wBjnKHxCQB+Rwdvz/tY9UGRbhQyv+T8ozURz4lORQ==",
+      "path": "microsoft.aspnetcore.dataprotection.extensions/9.0.0",
+      "hashPath": "microsoft.aspnetcore.dataprotection.extensions.9.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/9.0.8": {
       "type": "package",
@@ -1075,19 +1168,40 @@
       "path": "microsoft.extensions.dependencymodel/9.0.0",
       "hashPath": "microsoft.extensions.dependencymodel.9.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/7.0.0": {
+    "Microsoft.Extensions.Diagnostics.Abstractions/9.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-NyawiW9ZT/liQb34k9YqBSNPLuuPkrjMgQZ24Y/xXX1RoiBkLUdPMaQTmxhZ5TYu8ZKZ9qayzil75JX95vGQUg==",
-      "path": "microsoft.extensions.fileproviders.abstractions/7.0.0",
-      "hashPath": "microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512"
+      "sha512": "sha512-1K8P7XzuzX8W8pmXcZjcrqS6x5eSSdvhQohmcpgiQNY/HlDAlnrhR9dvlURfFz428A+RTCJpUyB+aKTA6AgVcQ==",
+      "path": "microsoft.extensions.diagnostics.abstractions/9.0.0",
+      "hashPath": "microsoft.extensions.diagnostics.abstractions.9.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Hosting.Abstractions/7.0.0": {
+    "Microsoft.Extensions.Diagnostics.HealthChecks/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-43n9Je09z0p/7ViPxfRqs5BUItRLNVh5b6JH40F2Agkh2NBsY/jpNYTtbCcxrHCsA3oRmbR6RJBzUutB4VZvNQ==",
-      "path": "microsoft.extensions.hosting.abstractions/7.0.0",
-      "hashPath": "microsoft.extensions.hosting.abstractions.7.0.0.nupkg.sha512"
+      "sha512": "sha512-P9SoBuVZhJPpALZmSq72aQEb9ryP67EdquaCZGXGrrcASTNHYdrUhnpgSwIipgM5oVC+dKpRXg5zxobmF9xr5g==",
+      "path": "microsoft.extensions.diagnostics.healthchecks/8.0.0",
+      "hashPath": "microsoft.extensions.diagnostics.healthchecks.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AT2qqos3IgI09ok36Qag9T8bb6kHJ3uT9Q5ki6CySybFsK6/9JbvQAgAHf1pVEjST0/N4JaFaCbm40R5edffwg==",
+      "path": "microsoft.extensions.diagnostics.healthchecks.abstractions/8.0.0",
+      "hashPath": "microsoft.extensions.diagnostics.healthchecks.abstractions.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uK439QzYR0q2emLVtYzwyK3x+T5bTY4yWsd/k/ZUS9LR6Sflp8MIdhGXW8kQCd86dQD4tLqvcbLkku8qHY263Q==",
+      "path": "microsoft.extensions.fileproviders.abstractions/9.0.0",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yUKJgu81ExjvqbNWqZKshBbLntZMbMVz/P7Way2SBx7bMqA08Mfdc9O7hWDKAiSp+zPUGT6LKcSCQIPeDK+CCw==",
+      "path": "microsoft.extensions.hosting.abstractions/9.0.0",
+      "hashPath": "microsoft.extensions.hosting.abstractions.9.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/9.0.0": {
       "type": "package",
@@ -1194,12 +1308,12 @@
       "path": "npgsql.entityframeworkcore.postgresql/9.0.0",
       "hashPath": "npgsql.entityframeworkcore.postgresql.9.0.0.nupkg.sha512"
     },
-    "Serilog/2.12.0": {
+    "Serilog/3.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xaiJLIdu6rYMKfQMYUZgTy8YK7SMZjB4Yk50C/u//Z4OsvxkUfSPJy4nknfvwAC34yr13q7kcyh4grbwhSxyZg==",
-      "path": "serilog/2.12.0",
-      "hashPath": "serilog.2.12.0.nupkg.sha512"
+      "sha512": "sha512-P6G4/4Kt9bT635bhuwdXlJ2SCqqn2nhh4gqFqQueCOr9bK/e7W9ll/IoX1Ter948cV2Z/5+5v8pAfJYUISY03A==",
+      "path": "serilog/3.1.1",
+      "hashPath": "serilog.3.1.1.nupkg.sha512"
     },
     "Serilog.AspNetCore/7.0.0": {
       "type": "package",
@@ -1236,12 +1350,12 @@
       "path": "serilog.settings.configuration/7.0.0",
       "hashPath": "serilog.settings.configuration.7.0.0.nupkg.sha512"
     },
-    "Serilog.Sinks.Console/4.0.1": {
+    "Serilog.Sinks.Console/5.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-apLOvSJQLlIbKlbx+Y2UDHSP05kJsV7mou+fvJoRGs/iR+jC22r8cuFVMjjfVxz/AD4B2UCltFhE1naRLXwKNw==",
-      "path": "serilog.sinks.console/4.0.1",
-      "hashPath": "serilog.sinks.console.4.0.1.nupkg.sha512"
+      "sha512": "sha512-6Jt8jl9y2ey8VV7nVEUAyjjyxjAQuvd5+qj4XYAT9CwcsvR70HHULGBeD+K2WCALFXf7CFsNQT4lON6qXcu2AA==",
+      "path": "serilog.sinks.console/5.0.1",
+      "hashPath": "serilog.sinks.console.5.0.1.nupkg.sha512"
     },
     "Serilog.Sinks.Debug/2.0.0": {
       "type": "package",
@@ -1347,6 +1461,20 @@
       "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "System.Security.Cryptography.Pkcs/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8tluJF8w9si+2yoHeL8rgVJS6lKvWomTDC8px65Z8MCzzdME5eaPtEQf4OfVGrAxB5fW93ncucy1+221O9EQaw==",
+      "path": "system.security.cryptography.pkcs/9.0.0",
+      "hashPath": "system.security.cryptography.pkcs.9.0.0.nupkg.sha512"
+    },
+    "System.Security.Cryptography.Xml/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GQZn5wFd+pyOfwWaCbqxG7trQ5ox01oR8kYgWflgtux4HiUNihGEgG2TktRWyH+9bw7NoEju1D41H/upwQeFQw==",
+      "path": "system.security.cryptography.xml/9.0.0",
+      "hashPath": "system.security.cryptography.xml.9.0.0.nupkg.sha512"
     },
     "System.Text.Json/9.0.0": {
       "type": "package",

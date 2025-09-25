@@ -2,13 +2,17 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Copy csproj and restore as distinct layers
-COPY ClassRoom_Dashboard_Backend/ClassRoom_Dashboard_Backend/*.csproj ClassRoom_Dashboard_Backend/ClassRoom_Dashboard_Backend/
-RUN dotnet restore ClassRoom_Dashboard_Backend/ClassRoom_Dashboard_Backend/Classroom_Dashboard_Backend.csproj
-
-# Copy everything and build
+# Copy whole repository
 COPY . .
-RUN dotnet publish ClassRoom_Dashboard_Backend/ClassRoom_Dashboard_Backend/Classroom_Dashboard_Backend.csproj -c Release -o /app/publish /p:UseAppHost=false
+
+# Locate the csproj dynamically (case-sensitive in Linux) and restore/publish
+RUN set -e \
+    && echo "Searching for csproj..." \
+    && CSProjPath=$(find /src -type f -name 'Classroom_Dashboard_Backend.csproj' -print -quit) \
+    && echo "Found: $CSProjPath" \
+    && if [ -z "$CSProjPath" ]; then echo "ERROR: .csproj not found" && exit 1; fi \
+    && dotnet restore "$CSProjPath" \
+    && dotnet publish "$CSProjPath" -c Release -o /app/publish /p:UseAppHost=false
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final

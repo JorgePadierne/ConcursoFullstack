@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   postgres:
     image: postgres:15
@@ -18,18 +16,19 @@ services:
       dockerfile: Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Production
+      DISABLE_HTTPS_REDIRECT: "true"
       # Connection string
       ConnectionStrings__Default: Host=postgres;Database=${POSTGRES_DB:-classroom_dashboard};Username=${POSTGRES_USER:-postgres};Password=${POSTGRES_PASSWORD:-apc5tdrd}
-      # JWT
-      JWT_ISSUER: ClassroomDashboard
-      JWT_AUDIENCE: ClassroomDashboardAudience
-      JWT_SECRET_KEY: change-this-secret-in-prod
-      # Google OAuth
-      GOOGLE_CLIENT_ID: your-client-id.apps.googleusercontent.com
-      GOOGLE_CLIENT_SECRET: your-client-secret
-      GOOGLE_REDIRECT_URI: https://your-domain.com/auth/oauth2/callback
-      # CORS
-      CORS_ALLOWED_ORIGINS: https://your-frontend.com
+      # JWT (read from .env)
+      JWT_ISSUER: ${JWT_ISSUER}
+      JWT_AUDIENCE: ${JWT_AUDIENCE}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+      # Google OAuth (read from .env)
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI}
+      # CORS (read from .env)
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS}
     ports:
       - "8080:8080"
     depends_on:
