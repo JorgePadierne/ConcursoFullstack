@@ -5,12 +5,26 @@ class ApiClient {
   private client: AxiosInstance;
 
   constructor(baseURL?: string) {
-    const resolvedBaseURL = baseURL || (import.meta.env.VITE_API_BASE_URL as string) || 'http://localhost:8080';
+    // Usar la URL del parámetro, luego la de las variables de entorno, o localhost como último recurso
+    let resolvedBaseURL = baseURL || import.meta.env.VITE_API_BASE_URL;
+    
+    // Asegurarse de que la URL base termine con /api si es necesario
+    if (resolvedBaseURL && !resolvedBaseURL.endsWith('/')) {
+      resolvedBaseURL = `${resolvedBaseURL}/api`;
+    } else if (resolvedBaseURL) {
+      resolvedBaseURL = `${resolvedBaseURL}api`;
+    } else {
+      resolvedBaseURL = 'http://localhost:5000/api'; // Valor por defecto para desarrollo
+    }
+    
+    console.log('API Base URL:', resolvedBaseURL);
+    
     this.client = axios.create({
       baseURL: resolvedBaseURL,
       headers: {
         'Content-Type': 'application/json',
       },
+      timeout: 10000, // 10 segundos de timeout
     });
 
     this.setupInterceptors();
