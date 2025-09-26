@@ -140,18 +140,26 @@ class ApiClient {
   }
 
   async googleLogin(): Promise<{ url: string }> {
-    const response = await this.client.get<{ url: string }>('/auth/google');
+    // Use the base URL without /api for auth endpoints
+    const response = await this.client.get<{ url: string }>('/auth/google', {
+      baseURL: this.client.defaults.baseURL?.replace('/api', '')
+    });
     return response.data;
   }
 
   async googleCallback(code: string): Promise<ExtendedAuthResponse> {
-    const response = await this.client.get<ExtendedAuthResponse>(`/auth/oauth2/callback?code=${code}`);
+    // Note: The backend's AuthController uses [Route("auth")], so the full path is /auth/oauth2/callback
+    const response = await this.client.get<ExtendedAuthResponse>(`/auth/oauth2/callback?code=${code}`, {
+      baseURL: this.client.defaults.baseURL?.replace('/api', '') // Remove /api prefix for auth endpoints
+    });
     return response.data;
   }
 
   // User methods
   async getCurrentUser(): Promise<User> {
-    const response = await this.client.get<User>('/auth/me');
+    const response = await this.client.get<User>('/auth/me', {
+      baseURL: this.client.defaults.baseURL?.replace('/api', '') // Remove /api prefix for auth endpoints
+    });
     return response.data;
   }
 
