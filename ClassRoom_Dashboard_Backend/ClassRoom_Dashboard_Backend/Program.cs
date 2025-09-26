@@ -183,6 +183,22 @@ else
     app.UseHsts();
 }
 
+// Override production config with environment variables if available
+var googleClientId = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_ID") ?? builder.Configuration["Google:ClientId"];
+var googleClientSecret = Environment.GetEnvironmentVariable("GOOGLE_CLIENT_SECRET") ?? builder.Configuration["Google:ClientSecret"];
+var googleRedirectUri = Environment.GetEnvironmentVariable("GOOGLE_REDIRECT_URI") ?? builder.Configuration["Google:RedirectUri"];
+var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:Key"];
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL") ?? builder.Configuration.GetConnectionString("Default");
+var corsOrigins = Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS") ?? builder.Configuration["AllowedOrigins"];
+
+// Update configuration with environment variables
+if (!string.IsNullOrEmpty(googleClientId)) builder.Configuration["Google:ClientId"] = googleClientId;
+if (!string.IsNullOrEmpty(googleClientSecret)) builder.Configuration["Google:ClientSecret"] = googleClientSecret;
+if (!string.IsNullOrEmpty(googleRedirectUri)) builder.Configuration["Google:RedirectUri"] = googleRedirectUri;
+if (!string.IsNullOrEmpty(jwtKey)) builder.Configuration["Jwt:Key"] = jwtKey;
+if (!string.IsNullOrEmpty(databaseUrl)) builder.Configuration["ConnectionStrings:Default"] = databaseUrl;
+if (!string.IsNullOrEmpty(corsOrigins)) builder.Configuration["AllowedOrigins"] = corsOrigins;
+
 // Global error handling
 app.UseExceptionHandler("/error");
 
