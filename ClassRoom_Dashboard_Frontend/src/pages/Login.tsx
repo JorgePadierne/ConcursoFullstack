@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import apiClient from "../utils/apiClient";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 
+
 const Login: React.FC = () => {
   const { isAuthenticated, login } = useAuth();
   const navigate = useNavigate();
@@ -20,19 +21,43 @@ const Login: React.FC = () => {
       const code = searchParams.get("code");
       const error = searchParams.get("error");
 
+      console.log("Google callback received:", { code, error });
+
       if (error) {
         console.error("Google OAuth error:", error);
+        // Mostrar mensaje de error al usuario
         return;
       }
 
       if (code) {
         try {
+          console.log("Exchanging code for token...");
           const response = await apiClient.googleCallback(code);
-          const { token, user } = response.data;
-          login(token, user);
-          navigate("/dashboard");
+          console.log("Auth response:", response);
+
+          if (response.data && response.data.token && response.data.user) {
+            const { token, user } = response.data;
+            console.log("Login successful, user:", user);
+
+            // Asegurarse de que el usuario tenga un rol
+            const userWithRole = {
+              ...user,
+              role: user.role || "student", // Rol por defecto
+            };
+
+            login(token, userWithRole);
+
+            // Redirigir al dashboard
+            console.log("Redirecting to dashboard");
+            navigate("/dashboard", { replace: true });
+          } else {
+            console.error("Invalid response format:", response);
+            throw new Error("Invalid response from server");
+          }
         } catch (error) {
           console.error("Login failed:", error);
+          // Mostrar mensaje de error al usuario
+          alert("Error al iniciar sesión. Por favor, inténtalo de nuevo.");
         }
       }
     };
@@ -43,8 +68,7 @@ const Login: React.FC = () => {
   const handleGoogleLogin = () => {
     const clientId = (import.meta.env.VITE_GOOGLE_CLIENT_ID as string) || "";
     const redirectUri =
-      (import.meta.env.VITE_GOOGLE_REDIRECT_URI as string) ||
-      "http://localhost:5173/login";
+      (import.meta.env.VITE_GOOGLE_REDIRECT_URI as string) || "/login";
     const scope = encodeURIComponent(
       [
         "openid",

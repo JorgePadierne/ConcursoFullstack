@@ -33,35 +33,65 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   useEffect(() => {
     const initializeAuth = async () => {
-      const token = localStorage.getItem("auth_token");
-      const storedUser = localStorage.getItem("user");
+      try {
+        const token = localStorage.getItem("auth_token");
+        const storedUser = localStorage.getItem("user");
+        
+        console.log("Initializing auth, token exists:", !!token);
+        console.log("Stored user:", storedUser);
 
-      if (token && storedUser) {
-        try {
+        if (token && storedUser) {
           apiClient.setAuthToken(token);
           const parsedUser = JSON.parse(storedUser);
+          
+          // Ensure user has a role
+          if (!parsedUser.role) {
+            console.warn("No role found for user, setting default role");
+            parsedUser.role = 'student';
+            localStorage.setItem("user", JSON.stringify(parsedUser));
+          }
+          
           setUser(parsedUser);
+          console.log("User from storage:", parsedUser);
 
           // Verify token is still valid
-          await apiClient.getCurrentUser();
-        } catch {
-          // Token is invalid, clear it
-          localStorage.removeItem("auth_token");
-          localStorage.removeItem("user");
-          apiClient.clearAuthToken();
+          try {
+            const response = await apiClient.getCurrentUser();
+            console.log("Token is valid, user:", response.data);
+          } catch (error) {
+            console.error("Token validation failed:", error);
+            throw error; // Will be caught in the outer catch
+          }
         }
+      } catch (error) {
+        console.error("Auth initialization error:", error);
+        // Token is invalid or error occurred, clear auth data
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("user");
+        apiClient.clearAuthToken();
+        setUser(null);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
 
     initializeAuth();
   }, []);
 
-  const login = (token: string, user: User) => {
+  const login = (token: string, userData: User) => {
+    console.log("Login called with:", { token, userData });
+    
+    // Ensure user has a default role if not provided
+    const userWithRole = {
+      ...userData,
+      role: userData.role || 'student' // Default role if not provided
+    };
+    
     apiClient.setAuthToken(token);
     localStorage.setItem("auth_token", token);
-    localStorage.setItem("user", JSON.stringify(user));
-    setUser(user);
+    localStorage.setItem("user", JSON.stringify(userWithRole));
+    setUser(userWithRole);
+    console.log("User logged in successfully:", userWithRole);
   };
 
   const logout = () => {
