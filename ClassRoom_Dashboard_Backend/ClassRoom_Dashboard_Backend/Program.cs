@@ -219,6 +219,10 @@ app.UseAuthorization();
 // Health checks
 app.MapHealthChecks("/health");
 
+// Root endpoints - redirect to frontend
+app.MapGet("/", () => Results.Redirect("https://concursofullstack.onrender.com"));
+app.MapHead("/", () => Results.Redirect("https://concursofullstack.onrender.com"));
+
 app.MapControllers().RequireRateLimiting("ApiPolicy");
 
 app.Run();
