@@ -88,11 +88,51 @@ En producción, coloca un proxy reverso (Nginx/Azure Front Door) delante. La app
 3. Copia ClientId/Secret a variables de entorno.
 4. Flujo: Frontend -> GET /auth/google -> Google -> /auth/oauth2/callback -> API retorna `{ token: jwt }`.
 
-## Notas de despliegue (Azure App Service ejemplo)
-- Setea variables en `Settings > Configuration`.
-- `WEBSITE_HTTPLOGGING_RETENTION_DAYS=7` (opcional logs)
-- `ASPNETCORE_FORWARDEDHEADERS_ENABLED=true`
-- Habilita HTTPS y redirección.
+## Despliegue en Render.com
+
+### Variables de Entorno para Render.com
+
+En el dashboard de Render.com, ve a tu servicio web y configura las siguientes variables de entorno:
+
+**Base de Datos:**
+- `DATABASE_URL` = postgresql://postgres:apc5tdrd@db-classroom-dashboard:5432/classroom_dashboard
+
+**JWT:**
+- `JWT_ISSUER` = ClassroomDashboard
+- `JWT_AUDIENCE` = ClassroomDashboardAudience
+- `JWT_SECRET_KEY` = 8f3a0c2e6f9d4b17a2c15e8b1d7f4c3a9b0e5d6c7f12a34b56c78d90e1f23456a7b8c9d0e1f2233445566778899aabbccddeeff00112233445566778899
+
+**Google OAuth:**
+- `GOOGLE_CLIENT_ID` = 374302406745-6g4p5asgaumaourg5clgod56j8fsaock.apps.googleusercontent.com
+- `GOOGLE_CLIENT_SECRET` = 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
+- `GOOGLE_REDIRECT_URI` = https://concursofullstack.onrender.com/auth/oauth2/callback
+
+**CORS:**
+- `CORS_ALLOWED_ORIGINS` = https://concursofullstack.onrender.com,http://localhost:5173,http://localhost:3000
+
+**Configuración de Entorno:**
+- `ASPNETCORE_ENVIRONMENT` = Production
+
+### Pasos para Despliegue:
+
+1. **Base de Datos PostgreSQL:**
+   - Crea un nuevo servicio PostgreSQL en Render.com
+   - Copia la `External Database URL` y úsala como `DATABASE_URL`
+
+2. **Servicio Web:**
+   - Crea un nuevo Web Service en Render.com
+   - Conecta el repositorio GitHub
+   - Configura las variables de entorno arriba mencionadas
+   - Render detectará automáticamente que es un proyecto .NET
+
+3. **Actualizar URLs:**
+   - Una vez desplegado, actualiza `GOOGLE_REDIRECT_URI` con la URL real de tu backend
+   - Actualiza `CORS_ALLOWED_ORIGINS` si es necesario
+
+### URLs de Producción:
+- **Frontend:** https://concursofullstack.onrender.com
+- **Backend:** https://concursofullstack.onrender.com (o tu URL específica de Render)
+- **Google OAuth Redirect:** https://concursofullstack.onrender.com/auth/oauth2/callback
 
 ## Estructura relevante
 - Program.cs: configuración de servicios/middleware (JWT, CORS, Serilog, HealthChecks, RateLimiting, DataProtection, EF Core)

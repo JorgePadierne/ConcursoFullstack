@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import apiClient from '../utils/apiClient';
-import { BookOpenIcon } from '@heroicons/react/24/outline';
+import React, { useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import apiClient from "../utils/apiClient";
+import { BookOpenIcon } from "@heroicons/react/24/outline";
 
 const Login: React.FC = () => {
   const { isAuthenticated, login } = useAuth();
@@ -11,17 +11,17 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard');
+      navigate("/dashboard");
     }
   }, [isAuthenticated, navigate]);
 
   useEffect(() => {
     const handleGoogleCallback = async () => {
-      const code = searchParams.get('code');
-      const error = searchParams.get('error');
+      const code = searchParams.get("code");
+      const error = searchParams.get("error");
 
       if (error) {
-        console.error('Google OAuth error:', error);
+        console.error("Google OAuth error:", error);
         return;
       }
 
@@ -30,9 +30,9 @@ const Login: React.FC = () => {
           const response = await apiClient.googleCallback(code);
           const { token, user } = response.data;
           login(token, user);
-          navigate('/dashboard');
+          navigate("/dashboard");
         } catch (error) {
-          console.error('Login failed:', error);
+          console.error("Login failed:", error);
         }
       }
     };
@@ -41,27 +41,37 @@ const Login: React.FC = () => {
   }, [searchParams, login, navigate]);
 
   const handleGoogleLogin = () => {
-    const clientId = (import.meta.env.VITE_GOOGLE_CLIENT_ID as string) || '';
-    const redirectUri = (import.meta.env.VITE_GOOGLE_REDIRECT_URI as string) || 'http://localhost:5173/login';
-    const scope = encodeURIComponent([
-      'openid',
-      'email',
-      'profile',
-      'https://www.googleapis.com/auth/classroom.courses.readonly',
-      'https://www.googleapis.com/auth/classroom.rosters.readonly',
-      'https://www.googleapis.com/auth/classroom.coursework.me',
-      'https://www.googleapis.com/auth/classroom.coursework.students',
-      'https://www.googleapis.com/auth/classroom.student-submissions.students.readonly',
-    ].join(' '));
+    const clientId = (import.meta.env.VITE_GOOGLE_CLIENT_ID as string) || "";
+    const redirectUri =
+      (import.meta.env.VITE_GOOGLE_REDIRECT_URI as string) ||
+      "http://localhost:5173/login";
+    const scope = encodeURIComponent(
+      [
+        "openid",
+        "email",
+        "profile",
+        "https://www.googleapis.com/auth/classroom.courses.readonly",
+        "https://www.googleapis.com/auth/classroom.rosters.readonly",
+        "https://www.googleapis.com/auth/classroom.coursework.me",
+        "https://www.googleapis.com/auth/classroom.coursework.students",
+        "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly",
+      ].join(" ")
+    );
 
     if (clientId) {
-      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(clientId)}&response_type=code&scope=${scope}&redirect_uri=${encodeURIComponent(redirectUri)}&access_type=offline&prompt=consent`;
+      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(
+        clientId
+      )}&response_type=code&scope=${scope}&redirect_uri=${encodeURIComponent(
+        redirectUri
+      )}&access_type=offline&prompt=consent`;
       window.location.href = authUrl;
       return;
     }
 
     // Fallback: use backend endpoint if client id is not provided in the frontend
-    const base = (import.meta.env.VITE_API_BASE_URL as string) || 'http://localhost:8080';
+    const base =
+      (import.meta.env.VITE_API_BASE_URL as string) ||
+      "https://concursofullstack.onrender.com";
     window.location.href = `${base}/auth/google`;
   };
 
@@ -106,7 +116,8 @@ const Login: React.FC = () => {
           </button>
           <div className="text-center">
             <p className="text-xs text-gray-500 dark:text-gray-400">
-              By signing in, you agree to our terms of service and privacy policy
+              By signing in, you agree to our terms of service and privacy
+              policy
             </p>
           </div>
         </div>
