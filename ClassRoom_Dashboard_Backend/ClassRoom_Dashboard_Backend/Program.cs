@@ -20,41 +20,25 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-// CORS - restrict to allowed origins from configuration (supports string[] or CSV string)
-var allowedOriginsSection = builder.Configuration.GetSection("AllowedOrigins");
-string[] allowedOrigins = Array.Empty<string>();
-if (allowedOriginsSection.Exists())
+// CORS configuration
+var allowedOrigins = new[]
 {
-    var arr = allowedOriginsSection.Get<string[]>();
-    if (arr != null && arr.Length > 0)
-    {
-        allowedOrigins = arr;
-    }
-}
-if (allowedOrigins.Length == 0)
-{
-    var allowedOriginsCsv = builder.Configuration["AllowedOrigins"];
-    if (!string.IsNullOrWhiteSpace(allowedOriginsCsv))
-    {
-        allowedOrigins = allowedOriginsCsv.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-    }
-}
+    "https://concurso-fullstack.vercel.app",
+    "http://localhost:3000"
+};
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("DefaultCors", policy =>
     {
-        if (allowedOrigins.Length > 0)
-        {
-            policy.WithOrigins(allowedOrigins)
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
-        }
-        else
-        {
-            policy.AllowAnyHeader().AllowAnyMethod();
-        }
+        policy.WithOrigins(allowedOrigins)
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials()
+              .WithExposedHeaders("Content-Disposition");
+        
+        // Log the CORS configuration
+        Console.WriteLine("CORS configured with origins: " + string.Join(", ", allowedOrigins));
     });
 });
 
@@ -227,14 +211,16 @@ if (!disableHttpsRedirect)
     app.UseHttpsRedirection();
 }
 app.UseSerilogRequestLogging();
-app.UseRateLimiter();
-app.UseCors("DefaultCors");
+app.UseRouting();
+
+// Important: UseCors must be after UseRouting and before UseAuthentication and UseAuthorization
+app.UseCors("DefaultCors");"DefaultCors");
 app.UseAuthentication();
 app.UseAuthorization();
 
 // Health checks
 app.MapHealthChecks("/health");
-
+{{ ... }}
 // Root endpoint - redirect to frontend (handles both GET and HEAD)
 app.MapGet("/", () => Results.Redirect("https://concurso-fullstack.vercel.app"));
 

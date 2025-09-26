@@ -138,14 +138,21 @@ namespace Classroom_Dashboard_Backend.Controllers
                     tokenExpiry = user.TokenExpiry
                 };
 
-                // En un entorno de producción, asegúrate de que el frontend maneje el token de manera segura
+                // Devolver respuesta JSON con el token y la información del usuario
                 Console.WriteLine("Authentication successful. Generating response...");
                 
-                // Redirigir al frontend con los tokens como parámetros de consulta
-                var frontendUrl = _config["Frontend:BaseUrl"] ?? "http://localhost:3000";
-                var redirectUrl = $"{frontendUrl}/auth/callback?token={Uri.EscapeDataString(jwt)}&email={Uri.EscapeDataString(user.Email)}&name={Uri.EscapeDataString(user.Name ?? "")}&role={Uri.EscapeDataString(user.Role)}";
-                
-                return Redirect(redirectUrl);
+                return Ok(new
+                {
+                    token = jwt,
+                    user = new
+                    {
+                        id = user.Id,
+                        email = user.Email,
+                        name = user.Name,
+                        role = user.Role,
+                        tokenExpiry = user.TokenExpiry
+                    }
+                });
             }
             catch (Exception ex)
             {
