@@ -222,6 +222,20 @@ app.MapHealthChecks("/health");
 // Root endpoint - redirect to frontend (handles both GET and HEAD)
 app.MapGet("/", () => Results.Redirect("https://concursofullstack.onrender.com"));
 
+// Debug endpoint - check environment variables (remove in production)
+app.MapGet("/debug/env", (IConfiguration config) =>
+{
+    return Results.Ok(new
+    {
+        GoogleClientId = config["Google:ClientId"] ?? "NOT_SET",
+        GoogleClientSecret = config["Google:ClientSecret"] ?? "NOT_SET",
+        GoogleRedirectUri = config["Google:RedirectUri"] ?? "NOT_SET",
+        JwtIssuer = config["Jwt:Issuer"] ?? "NOT_SET",
+        JwtAudience = config["Jwt:Audience"] ?? "NOT_SET",
+        DatabaseConnection = config.GetConnectionString("Default") ?? "NOT_SET"
+    });
+});
+
 app.MapControllers().RequireRateLimiting("ApiPolicy");
 
 app.Run();
