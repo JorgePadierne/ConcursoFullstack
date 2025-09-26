@@ -1,0 +1,71 @@
+# Ignorar archivos y carpetas de desarrollo
+bin/
+obj/
+.vscode/
+.git/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.dbmdl
+*.pfx
+*.publishsettings
+*.backup.*
+nupkg/
+.vs/
+_ReSharper*/
+_UpgradeReport_Files/
+Backup*/
+TestResults/
+*.ncrunchsolution
+*.ncrunchproject
+*.DotSettings.user
+*.dbmdl
+*.pfx
+*.publish
+
+# Ignorar archivos de configuración local
+appsettings.Development.json
+appsettings.Local.json
+
+# Ignorar archivos de logs
+logs/
+*.log
+
+# Ignorar archivos de IDE
+.idea/
+*.sln.iml
+*.userprefs
+
+# Ignorar archivos temporales
+*.swp
+*.swo
+*~
+
+# Ignorar archivos de migración de Entity Framework
+Migrations/
+
+# Ignorar archivos de paquetes NuGet locales
+.nuget/
+
+# Ignorar archivos de publicación locales
+publish/
+
+# Ignorar archivos de configuración de Rider
+.idea/
+*.sln.iml
+
+# Ignorar archivos de usuario de Visual Studio
+.vs/
+
+# Ignorar archivos de configuración de ReSharper
+_ReSharper*/
+
+# Ignorar archivos de configuración de TeamCity
+.teamcity/
+
+# Ignorar archivos de configuración de Azure DevOps
+.azure-pipelines/
+
+# Ignorar archivos de configuración de GitHub Actions
+.github/
