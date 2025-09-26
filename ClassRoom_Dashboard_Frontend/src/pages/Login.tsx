@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import apiClient from "../utils/apiClient";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 
+// Configuración de la API
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://concursofullstack.onrender.com';
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
+// Interceptor de axios para manejar errores globalmente
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true,
+  timeout: 15000,
+});
 
 const Login: React.FC = () => {
   const { isAuthenticated, login } = useAuth();
@@ -13,147 +22,190 @@ const Login: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Redirigir si ya está autenticado
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     }
   }, [isAuthenticated, navigate]);
 
-  useEffect(() => {
-    const handleGoogleCallback = async () => {
-      const code = searchParams.get("code");
-      const error = searchParams.get("error");
+  // Manejar el callback de Google OAuth
+  const handleGoogleCallback = useCallback(async () => {
+    const code = searchParams.get("code");
+    const error = searchParams.get("error");
 
-      console.log("Google callback received:", { code, error });
+    console.log("Parámetros de la URL:", { code, error, allParams: Object.fromEntries(searchParams.entries()) });
 
-      if (error) {
-        const errorDescription = searchParams.get("error_description") || "Error desconocido";
-        console.error("Google OAuth error:", { error, errorDescription });
-        setError(`Error de autenticación: ${errorDescription}`);
-        return;
-      }
-
-      if (!code) {
-        console.log("No code parameter found in URL");
-        return;
-      }
-
-      try {
-        setIsLoading(true);
-        setError(null);
-        console.log("Exchanging code for token...");
-        
-        const response = await apiClient.googleCallback(code);
-        console.log("Auth response:", response);
-        
-        if (!response?.token || !response.user) {
-          console.error("Invalid response format:", response);
-          throw new Error("Respuesta del servidor inválida");
-        }
-        
-        const { token, user } = response;
-        console.log("Login successful, user:", user);
-        
-        // Asegurarse de que el usuario tenga un rol y el ID sea un número
-        const userWithRole = {
-          ...user,
-          id: Number(user.id) || 0, // Convertir a número o usar 0 como respaldo
-          role: user.role || 'student' // Rol por defecto
-        };
-        
-        console.log("User with role and converted ID:", userWithRole);
-        
-        // Guardar el token y usuario
-        login(token, userWithRole);
-        
-        // Redirigir al dashboard después de un breve retraso
-        setTimeout(() => {
-          console.log("Redirecting to dashboard");
-          navigate("/dashboard", { replace: true });
-        }, 100);
-        
-      } catch (err: unknown) {
-        console.error("Authentication error:", err);
-        let errorMessage = "Error al conectar con el servidor";
-        
-        // Check if it's an Axios error
-        if (axios.isAxiosError(err)) {
-          const axiosError = err;
-          console.error("Axios error:", {
-            message: axiosError.message,
-            code: axiosError.code,
-            status: axiosError.response?.status,
-            responseData: axiosError.response?.data,
-            request: axiosError.request
-          });
-          
-          if (axiosError.code === 'ECONNABORTED') {
-            errorMessage = "El servidor está tardando demasiado en responder. Por favor, verifica tu conexión e inténtalo de nuevo.";
-          } else if (axiosError.response) {
-            // Server responded with a status code outside the 2xx range
-            const { status, data } = axiosError.response;
-            
-            if (status === 401) {
-              errorMessage = "Credenciales inválidas. Por favor, verifica e inténtalo de nuevo.";
-            } else if (status === 403) {
-              errorMessage = "No tienes permiso para acceder. Por favor, contacta al administrador.";
-            } else if (status === 404) {
-              errorMessage = "Recurso no encontrado. Por favor, verifica la URL e inténtalo de nuevo.";
-            } else if (status >= 500) {
-              errorMessage = "Error interno del servidor. Por favor, inténtalo de nuevo más tarde.";
-            } else {
-              errorMessage = (data as { message?: string })?.message || `Error del servidor (${status})`;
-            }
-          } else if (axiosError.request) {
-            // Request was made but no response received
-            console.error("No se recibió respuesta del servidor:", axiosError.request);
-            errorMessage = "No se pudo conectar con el servidor. Verifica tu conexión a internet e inténtalo de nuevo.";
-          }
-        }
-        
-        setError(errorMessage);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    handleGoogleCallback();
-  }, [searchParams, login, navigate]);
-  const handleGoogleLogin = () => {
-    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID as string;
-    const redirectUri = `${window.location.origin}/login`; // This will point to your frontend's login page
-    
-    if (!clientId) {
-      setError("Google Client ID no configurado");
+    if (error) {
+      const errorDescription = searchParams.get("error_description") || "Error desconocido";
+      console.error("Error de OAuth de Google:", { error, errorDescription });
+      setError(`Error de autenticación: ${errorDescription}`);
       return;
     }
 
-    const scope = encodeURIComponent(
-      "openid email profile " +
-      "https://www.googleapis.com/auth/classroom.courses.readonly " +
-      "https://www.googleapis.com/auth/classroom.rosters.readonly " +
-      "https://www.googleapis.com/auth/classroom.coursework.me " +
-      "https://www.googleapis.com/auth/classroom.coursework.students " +
-      "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly"
-    );
+    if (!code) {
+      console.log("No se encontró el parámetro 'code' en la URL");
+      return;
+    }
 
-    console.log('Initiating Google OAuth with:', {
-      clientId,
-      redirectUri,
-      scope: decodeURIComponent(scope)
+    try {
+      setIsLoading(true);
+      setError(null);
+      console.log("Intercambiando código por token...");
+      
+      const response = await api.get(`/auth/oauth2/callback`, {
+        params: { code },
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      console.log("Respuesta de autenticación:", response.data);
+      
+      const { token, user } = response.data;
+      
+      if (!token || !user) {
+        console.error("Formato de respuesta inválido:", response.data);
+        throw new Error("Respuesta del servidor inválida");
+      }
+      
+      const userWithRole = {
+        ...user,
+        id: Number(user.id) || 0,
+        role: user.role || 'student'
+      };
+      
+      console.log("Inicio de sesión exitoso, usuario:", userWithRole);
+      
+      // Guardar el token y usuario
+      login(token, userWithRole);
+      
+      // Limpiar los parámetros de la URL
+      window.history.replaceState({}, document.title, "/");
+      
+      // Redirigir al dashboard
+      navigate("/dashboard", { replace: true });
+      
+    } catch (error) {
+      interface ErrorResponse {
+        message?: string;
+        [key: string]: unknown;
+      }
+      
+      interface ErrorConfig {
+        url?: string;
+        method?: string;
+        headers?: Record<string, string>;
+      }
+      
+      interface AxiosError extends Error {
+        response?: {
+          data?: ErrorResponse;
+          status?: number;
+        };
+        request?: XMLHttpRequest;
+        code?: string;
+        config?: ErrorConfig;
+      }
+      
+      const err = error as AxiosError;
+      console.error("Error en la autenticación:", {
+        message: err.message,
+        response: err.response?.data,
+        status: err.response?.status,
+        config: {
+          url: err.config?.url,
+          method: err.config?.method,
+          headers: err.config?.headers
+        }
+      });
+      
+      let errorMessage = "Error al conectar con el servidor";
+      
+      if (err.response) {
+        // El servidor respondió con un error
+        const status = err.response.status || 0; // Aseguramos que sea un número
+        const data = err.response.data;
+        
+        if (status === 400) {
+          errorMessage = data?.message || "Solicitud incorrecta. Por favor, inténtalo de nuevo.";
+        } else if (status === 401) {
+          errorMessage = "La sesión ha expirado. Por favor, inicia sesión nuevamente.";
+        } else if (status === 403) {
+          errorMessage = "No tienes permiso para acceder a este recurso.";
+        } else if (status === 404) {
+          errorMessage = "Recurso no encontrado.";
+        } else if (status >= 500) {
+          errorMessage = "Error interno del servidor. Por favor, inténtalo de nuevo más tarde.";
+        }
+      } else if (err.request) {
+        // No se recibió respuesta del servidor
+        errorMessage = "No se pudo conectar con el servidor. Verifica tu conexión a internet.";
+      } else if (err.code === 'ECONNABORTED') {
+        errorMessage = "El servidor está tardando demasiado en responder. Por favor, inténtalo de nuevo.";
+      }
+      
+      setError(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [searchParams, login, navigate]);
+
+  // Efecto para manejar el callback de Google
+  useEffect(() => {
+    console.log("Iniciando manejo de callback...");
+    
+    // Verificar si hay un código de autorización en la URL
+    const code = searchParams.get("code");
+    if (code) {
+      console.log("Código de autorización encontrado, procesando...");
+      handleGoogleCallback();
+    } else {
+      console.log("No se encontró código de autorización en la URL");
+    }
+  }, [searchParams, handleGoogleCallback]);
+
+  // Manejar el inicio de sesión con Google
+  const handleGoogleLogin = useCallback(() => {
+    if (!GOOGLE_CLIENT_ID) {
+      setError("Error de configuración: Falta el ID de cliente de Google");
+      console.error("VITE_GOOGLE_CLIENT_ID no está configurado");
+      return;
+    }
+
+    const redirectUri = `${window.location.origin}/login`;
+    const scope = [
+      'openid',
+      'email',
+      'profile',
+      'https://www.googleapis.com/auth/classroom.courses.readonly',
+      'https://www.googleapis.com/auth/classroom.rosters.readonly',
+      'https://www.googleapis.com/auth/classroom.coursework.me',
+      'https://www.googleapis.com/auth/classroom.coursework.students',
+      'https://www.googleapis.com/auth/classroom.student-submissions.students.readonly'
+    ].join(' ');
+
+    const params = new URLSearchParams({
+      client_id: GOOGLE_CLIENT_ID,
+      redirect_uri: redirectUri,
+      response_type: 'code',
+      scope: scope,
+      access_type: 'offline',
+      prompt: 'consent'
     });
 
-    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
-      `client_id=${encodeURIComponent(clientId)}` +
-      `&redirect_uri=${encodeURIComponent(redirectUri)}` +
-      `&response_type=code` +
-      `&scope=${scope}` +
-      `&access_type=offline` +
-      `&prompt=consent`;
-
-    console.log('Redirecting to Google OAuth URL:', authUrl);
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+    
+    console.log('Redirigiendo a Google OAuth:', {
+      authUrl,
+      clientId: GOOGLE_CLIENT_ID,
+      redirectUri,
+      scope
+    });
+    
     window.location.href = authUrl;
-  };
+  }, []);
 
   // Mostrar estado de carga
   if (isLoading) {
