@@ -50,7 +50,14 @@ const App: React.FC = () => {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/*" element={<AppRoutes />} />
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoute>
+                <AppRoutes />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Router>
     </AuthProvider>
