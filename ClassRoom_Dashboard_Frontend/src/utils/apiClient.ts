@@ -5,9 +5,21 @@ import type {
   Coursework, 
   StudentDashboard, 
   TeacherCourseSummary, 
-  AuthResponse,
   Notification
 } from '../types/api';
+
+// Extend the User interface to include data property
+interface UserWithData extends User {
+  data?: Record<string, unknown>;
+}
+
+// Update the AuthResponse interface to use UserWithData
+interface ExtendedAuthResponse {
+  token: string;
+  user: UserWithData;
+  data?: Record<string, unknown>;
+  expiresIn: number;
+}
 
 // Google API types
 interface GoogleAuthInstance {
@@ -61,7 +73,7 @@ declare global {
 }
 
 // Re-export types for convenience
-export type { User, Course, Coursework, StudentDashboard, TeacherCourseSummary, AuthResponse, Notification };
+export type { User, Course, Coursework, StudentDashboard, TeacherCourseSummary, Notification };
 
 class ApiClient {
   private readonly client: AxiosInstance;
@@ -118,8 +130,8 @@ class ApiClient {
   }
 
   // Auth methods
-  async login(email: string, password: string): Promise<AuthResponse> {
-    const response = await this.client.post<AuthResponse>('/auth/login', { email, password });
+  async login(email: string, password: string): Promise<ExtendedAuthResponse> {
+    const response = await this.client.post<ExtendedAuthResponse>('/auth/login', { email, password });
     return response.data;
   }
 
@@ -132,8 +144,8 @@ class ApiClient {
     return response.data;
   }
 
-  async googleCallback(code: string): Promise<AuthResponse> {
-    const response = await this.client.get<AuthResponse>(`/auth/oauth2/callback?code=${code}`);
+  async googleCallback(code: string): Promise<ExtendedAuthResponse> {
+    const response = await this.client.get<ExtendedAuthResponse>(`/auth/oauth2/callback?code=${code}`);
     return response.data;
   }
 
@@ -179,9 +191,22 @@ class ApiClient {
     const response = await this.client.patch<{ success: boolean }>(`/notifications/${id}/read`, {});
     return response.data;
   }
+
+  // Set authentication token
+  setAuthToken(token: string): void {
+    if (token) {
+      this.client.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    }
+  }
+
+  // Clear authentication token
+  clearAuthToken(): void {
+    delete this.client.defaults.headers.common['Authorization'];
+  }
 }
 
 // Create a singleton instance
 const apiClient = new ApiClient();
 export default apiClient;
-export { ApiClient };
+export { ApiClient, type ExtendedAuthResponse as AuthResponse };
+

@@ -4,11 +4,16 @@ import type { ReactNode } from "react";
 import type { User } from "../types/api";
 import apiClient from "../utils/apiClient";
 
+// Extend User type to include data property
+interface UserWithData extends User {
+  data?: Record<string, unknown>;
+}
+
 interface AuthContextType {
-  user: User | null;
+  user: UserWithData | null;
   isLoading: boolean;
   isAuthenticated: boolean;
-  login: (token: string, user: User) => void;
+  login: (token: string, user: UserWithData) => void;
   logout: () => void;
   refreshUser: () => Promise<void>;
 }
@@ -28,7 +33,7 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserWithData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -42,22 +47,28 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
         if (token && storedUser) {
           apiClient.setAuthToken(token);
-          const parsedUser = JSON.parse(storedUser);
+          const parsedUser: UserWithData = JSON.parse(storedUser);
           
-          // Ensure user has a role
-          if (!parsedUser.role) {
-            console.warn("No role found for user, setting default role");
-            parsedUser.role = 'student';
-            localStorage.setItem("user", JSON.stringify(parsedUser));
-          }
+          // Ensure user has a role and data property
+          const userWithDefaults = {
+            ...parsedUser,
+            role: parsedUser.role || 'student',
+            data: parsedUser.data || {}
+          };
           
-          setUser(parsedUser);
-          console.log("User from storage:", parsedUser);
+          setUser(userWithDefaults);
+          console.log("User from storage:", userWithDefaults);
 
           // Verify token is still valid
           try {
             const response = await apiClient.getCurrentUser();
-            console.log("Token is valid, user:", response.data);
+            console.log("Token is valid, user:", response);
+            // Update user data if needed
+            if (response) {
+              const updatedUser = response as unknown as UserWithData;
+              setUser(updatedUser);
+              localStorage.setItem("user", JSON.stringify(updatedUser));
+            }
           } catch (error) {
             console.error("Token validation failed:", error);
             throw error; // Will be caught in the outer catch
@@ -78,13 +89,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     initializeAuth();
   }, []);
 
-  const login = (token: string, userData: User) => {
+  const login = (token: string, userData: UserWithData) => {
     console.log("Login called with:", { token, userData });
     
     // Ensure user has a default role if not provided
     const userWithRole = {
       ...userData,
-      role: userData.role || 'student' // Default role if not provided
+      role: userData.role || 'student', // Default role if not provided
+      data: userData.data || {}
     };
     
     apiClient.setAuthToken(token);
@@ -104,7 +116,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const refreshUser = async () => {
     try {
       const response = await apiClient.getCurrentUser();
-      const updatedUser = response.data;
+      const updatedUser = response as unknown as UserWithData; // Type assertion
       setUser(updatedUser);
       localStorage.setItem("user", JSON.stringify(updatedUser));
     } catch (error) {

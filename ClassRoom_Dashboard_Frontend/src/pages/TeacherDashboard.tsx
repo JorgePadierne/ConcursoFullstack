@@ -26,8 +26,8 @@ const TeacherDashboard: React.FC = () => {
           apiClient.getCourses(),
         ]);
 
-        setCourseSummaries(dashboardResponse.data);
-        setCourses(coursesResponse.data);
+        setCourseSummaries(dashboardResponse);
+        setCourses(coursesResponse);
       } catch (error) {
         console.error("Failed to fetch dashboard data:", error);
       } finally {
@@ -48,18 +48,18 @@ const TeacherDashboard: React.FC = () => {
     );
   }
 
-  const totalTasks = courseSummaries.reduce(
-    (sum, course) => sum + course.tasks,
+  const totalTasks = courseSummaries?.reduce(
+    (sum, course) => sum + (course?.tasks || 0),
     0
-  );
-  const totalSubmissions = courseSummaries.reduce(
-    (sum, course) => sum + course.submissions,
+  ) || 0;
+  const totalSubmissions = courseSummaries?.reduce(
+    (sum, course) => sum + (course?.submissions || 0),
     0
-  );
-  const totalCompleted = courseSummaries.reduce(
-    (sum, course) => sum + course.handedIn,
+  ) || 0;
+  const totalCompleted = courseSummaries?.reduce(
+    (sum, course) => sum + (course?.handedIn || 0),
     0
-  );
+  ) || 0;
   const overallCompletionRate =
     totalTasks > 0 ? (totalCompleted / totalTasks) * 100 : 0;
 

@@ -31,16 +31,16 @@ const StudentDashboard: React.FC = () => {
           apiClient.getCourses(),
         ]);
 
-        setDashboardData(dashboardResponse.data);
-        setCourses(coursesResponse.data);
+        setDashboardData(dashboardResponse);
+        setCourses(coursesResponse);
 
         const allAssignments: Coursework[] = [];
-        for (const course of coursesResponse.data) {
+        for (const course of coursesResponse) {
           try {
             const assignmentsResponse = await apiClient.getCoursework(
               course.id
             );
-            allAssignments.push(...assignmentsResponse.data);
+            allAssignments.push(...assignmentsResponse);
           } catch (error) {
             console.error(
               `Failed to fetch assignments for course ${course.id}:`,
@@ -87,7 +87,7 @@ const StudentDashboard: React.FC = () => {
   }
 
   const completionRate =
-    dashboardData.totalSubmissions > 0
+    dashboardData && 'totalSubmissions' in dashboardData && dashboardData.totalSubmissions > 0
       ? (dashboardData.handedIn / dashboardData.totalSubmissions) * 100
       : 0;
 
