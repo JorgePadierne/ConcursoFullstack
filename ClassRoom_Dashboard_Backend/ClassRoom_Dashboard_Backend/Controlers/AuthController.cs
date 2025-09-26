@@ -56,60 +56,102 @@ namespace Classroom_Dashboard_Backend.Controllers
         // Paso 3: Callback de Google
         [AllowAnonymous]
         [HttpGet("oauth2/callback")]
-        public async Task<IActionResult> Callback([FromQuery] string code)
+        public async Task<IActionResult> Callback([FromQuery] string code, [FromQuery] string error)
         {
-            if (string.IsNullOrEmpty(code))
-                return BadRequest("Code missing from Google OAuth");
-
-            // Paso 3a: Intercambiar code por tokens
-            var tokens = await ExchangeCodeAsync(code);
-
-            // Paso 3b: Obtener info del usuario
-            var userInfo = await GetUserInfoAsync(tokens.AccessToken);
-
-            // Paso 3c: Guardar/actualizar usuario en DB
-            var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == userInfo.Email);
-            if (user == null)
+            try 
             {
-                user = new User
+                Console.WriteLine($"OAuth callback received. Code: {!string.IsNullOrEmpty(code)}, Error: {error}");
+                
+                if (!string.IsNullOrEmpty(error))
                 {
-                    Email = userInfo.Email,
-                    Name = userInfo.Name,
-                    Role = "student",
-                    GoogleAccessToken = tokens.AccessToken,
-                    GoogleRefreshToken = string.IsNullOrEmpty(tokens.RefreshToken) ? null : _protector.Protect(tokens.RefreshToken),
-                    TokenExpiry = DateTime.UtcNow.AddSeconds(tokens.ExpiresIn)
-                };
-                _db.Users.Add(user);
-            }
-            else
-            {
-                user.GoogleAccessToken = tokens.AccessToken;
-                if (!string.IsNullOrEmpty(tokens.RefreshToken))
-                {
-                    user.GoogleRefreshToken = _protector.Protect(tokens.RefreshToken);
+                    return BadRequest($"OAuth error: {error}");
                 }
-                user.TokenExpiry = DateTime.UtcNow.AddSeconds(tokens.ExpiresIn);
+                
+                if (string.IsNullOrEmpty(code))
+                {
+                    return BadRequest("Authorization code is missing from Google OAuth response");
+                }
+
+                // Paso 3a: Intercambiar code por tokens
+                Console.WriteLine("Exchanging authorization code for tokens...");
+                var tokens = await ExchangeCodeAsync(code);
+                
+                if (tokens == null || string.IsNullOrEmpty(tokens.AccessToken))
+                {
+                    return StatusCode(500, "Failed to obtain access token from Google");
+                }
+
+                Console.WriteLine("Successfully obtained access token. Getting user info...");
+                
+                // Paso 3b: Obtener info del usuario
+                var userInfo = await GetUserInfoAsync(tokens.AccessToken);
+                
+                if (userInfo == null || string.IsNullOrEmpty(userInfo.Email))
+                {
+                    return StatusCode(500, "Failed to retrieve user information from Google");
+                }
+                
+                Console.WriteLine($"User info retrieved. Email: {userInfo.Email}, Name: {userInfo.Name}");
+
+                // Paso 3c: Guardar/actualizar usuario en DB
+                var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == userInfo.Email);
+                
+                if (user == null)
+                {
+                    Console.WriteLine("Creating new user...");
+                    user = new User
+                    {
+                        Email = userInfo.Email,
+                        Name = userInfo.Name,
+                        Role = "student",
+                        GoogleAccessToken = tokens.AccessToken,
+                        GoogleRefreshToken = string.IsNullOrEmpty(tokens.RefreshToken) ? null : _protector.Protect(tokens.RefreshToken),
+                        TokenExpiry = DateTime.UtcNow.AddSeconds(tokens.ExpiresIn)
+                    };
+                    _db.Users.Add(user);
+                }
+                else
+                {
+                    Console.WriteLine("Updating existing user...");
+                    user.GoogleAccessToken = tokens.AccessToken;
+                    if (!string.IsNullOrEmpty(tokens.RefreshToken))
+                    {
+                        user.GoogleRefreshToken = _protector.Protect(tokens.RefreshToken);
+                    }
+                    user.TokenExpiry = DateTime.UtcNow.AddSeconds(tokens.ExpiresIn);
+                }
+
+                await _db.SaveChangesAsync();
+                Console.WriteLine("User saved to database successfully");
+
+                // Paso 3d: Generar JWT para frontend
+                var jwt = GenerateJwt(user);
+
+                // Crear DTO para evitar problemas de serialización
+                var userDto = new
+                {
+                    id = user.Id,
+                    email = user.Email,
+                    name = user.Name,
+                    role = user.Role,
+                    // No enviar el refresh token al frontend por seguridad
+                    tokenExpiry = user.TokenExpiry
+                };
+
+                // En un entorno de producción, asegúrate de que el frontend maneje el token de manera segura
+                Console.WriteLine("Authentication successful. Generating response...");
+                
+                // Redirigir al frontend con los tokens como parámetros de consulta
+                var frontendUrl = _config["Frontend:BaseUrl"] ?? "http://localhost:3000";
+                var redirectUrl = $"{frontendUrl}/auth/callback?token={Uri.EscapeDataString(jwt)}&email={Uri.EscapeDataString(user.Email)}&name={Uri.EscapeDataString(user.Name ?? "")}&role={Uri.EscapeDataString(user.Role)}";
+                
+                return Redirect(redirectUrl);
             }
-
-            await _db.SaveChangesAsync();
-
-            // Paso 3d: Generar JWT para frontend
-            var jwt = GenerateJwt(user);
-
-            // Crear DTO para evitar problemas de serialización
-            var userDto = new
+            catch (Exception ex)
             {
-                id = user.Id,
-                email = user.Email,
-                name = user.Name,
-                role = user.Role,
-                googleRefreshToken = user.GoogleRefreshToken,
-                googleAccessToken = user.GoogleAccessToken,
-                tokenExpiry = user.TokenExpiry
-            };
-
-            return Ok(new { token = jwt, user = userDto, expiresIn = 7200 });
+                Console.WriteLine($"Error in OAuth callback: {ex}");
+                return StatusCode(500, $"An error occurred during authentication: {ex.Message}");
+            }
         }
 
         // Paso 4: Intercambiar code por token
@@ -118,6 +160,16 @@ namespace Classroom_Dashboard_Backend.Controllers
             var clientId = _config["Google:ClientId"];
             var clientSecret = _config["Google:ClientSecret"];
             var redirectUri = _config["Google:RedirectUri"];
+
+            // Log the values being used (except sensitive ones in production)
+            Console.WriteLine($"Exchanging code. Redirect URI: {redirectUri}");
+            Console.WriteLine($"Client ID: {clientId}");
+            Console.WriteLine($"Code: {!string.IsNullOrEmpty(code)}"); // Just log if code exists, not the actual value
+
+            if (string.IsNullOrEmpty(clientId) || string.IsNullOrEmpty(clientSecret) || string.IsNullOrEmpty(redirectUri))
+            {
+                throw new Exception("Missing required Google OAuth configuration");
+            }
 
             using var http = new HttpClient();
             var body = new Dictionary<string, string>
@@ -129,10 +181,41 @@ namespace Classroom_Dashboard_Backend.Controllers
                 { "grant_type", "authorization_code" }
             };
 
-            var resp = await http.PostAsync("https://oauth2.googleapis.com/token", new FormUrlEncodedContent(body));
-            resp.EnsureSuccessStatusCode();
-            var json = await resp.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<TokenResponse>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            try
+            {
+                var content = new FormUrlEncodedContent(body);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://oauth2.googleapis.com/token")
+                {
+                    Content = content
+                };
+
+                Console.WriteLine("Sending token request to Google...");
+                var resp = await http.SendAsync(requestMessage);
+                
+                var responseContent = await resp.Content.ReadAsStringAsync();
+                Console.WriteLine($"Google response status: {resp.StatusCode}");
+                Console.WriteLine($"Google response: {responseContent}");
+                
+                if (!resp.IsSuccessStatusCode)
+                {
+                    throw new HttpRequestException($"Failed to exchange code for token. Status: {resp.StatusCode}, Response: {responseContent}");
+                }
+                
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var tokenResponse = JsonSerializer.Deserialize<TokenResponse>(responseContent, options);
+                
+                if (tokenResponse == null || string.IsNullOrEmpty(tokenResponse.AccessToken))
+                {
+                    throw new Exception("Failed to deserialize token response or access token is missing");
+                }
+                
+                return tokenResponse;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error exchanging code for token: {ex}");
+                throw; // Re-throw to be handled by the caller
+            }
         }
 
         // Paso 5: Obtener info básica del usuario
