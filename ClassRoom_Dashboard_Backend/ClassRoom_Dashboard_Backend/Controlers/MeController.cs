@@ -1,6 +1,7 @@
 using Classroom_Dashboard_Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace Classroom_Dashboard_Backend.Controllers
