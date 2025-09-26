@@ -73,7 +73,7 @@ const StudentDashboard: React.FC = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 dark:border-blue-400"></div>
       </div>
     );
   }
@@ -110,25 +110,25 @@ const StudentDashboard: React.FC = () => {
             label: "Total Assignments",
             value: dashboardData.totalSubmissions,
             icon: ChartBarIcon,
-            iconColor: "text-blue-600",
+            iconColor: "text-blue-600 dark:text-blue-400",
           },
           {
             label: "Completed",
             value: dashboardData.handedIn,
             icon: CheckCircleIcon,
-            iconColor: "text-green-600",
+            iconColor: "text-green-600 dark:text-green-400",
           },
           {
             label: "Pending",
             value: dashboardData.pending,
             icon: ClockIcon,
-            iconColor: "text-yellow-600",
+            iconColor: "text-yellow-600 dark:text-yellow-400",
           },
           {
             label: "Late",
             value: dashboardData.late,
             icon: ExclamationTriangleIcon,
-            iconColor: "text-red-600",
+            iconColor: "text-red-600 dark:text-red-400",
           },
         ].map((card) => (
           <div
@@ -187,7 +187,7 @@ const StudentDashboard: React.FC = () => {
                 className="flex items-center justify-between"
               >
                 <div className="flex items-center">
-                  <BookOpenIcon className="h-5 w-5 text-blue-600 mr-3" />
+                  <BookOpenIcon className="h-5 w-5 text-blue-600 dark:text-blue-400 mr-3" />
                   <div>
                     <p className="text-sm font-medium text-gray-900 dark:text-white">
                       {course.name}
