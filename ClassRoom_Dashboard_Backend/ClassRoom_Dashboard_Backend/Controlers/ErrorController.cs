@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Classroom_Dashboard_Backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("error")]
     public class ErrorController : ControllerBase
     {
         [HttpGet]
