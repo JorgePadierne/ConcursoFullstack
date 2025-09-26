@@ -1,20 +1,80 @@
-import axios, { type AxiosInstance, type AxiosResponse } from 'axios';
-import type { User, Course, Coursework, StudentDashboard, TeacherCourseSummary } from '../types/api';
+import axios, { type AxiosInstance, type InternalAxiosRequestConfig } from 'axios';
+import type { 
+  User, 
+  Course, 
+  Coursework, 
+  StudentDashboard, 
+  TeacherCourseSummary, 
+  AuthResponse,
+  Notification
+} from '../types/api';
+
+// Google API types
+interface GoogleAuthInstance {
+  signIn: (options?: { prompt?: string }) => Promise<GoogleUser>;
+  signOut: () => Promise<void>;
+  isSignedIn: {
+    get: () => boolean;
+    listen: (callback: (isSignedIn: boolean) => void) => void;
+  };
+  currentUser: {
+    get: () => GoogleUser;
+    listen: (callback: (user: GoogleUser) => void) => void;
+  };
+}
+
+interface GoogleUser {
+  getAuthResponse: (includeAuthorizationData?: boolean) => {
+    access_token: string;
+    id_token: string;
+    expires_in: number;
+    token_type: string;
+  };
+  getBasicProfile: () => {
+    getId: () => string;
+    getName: () => string;
+    getGivenName: () => string;
+    getFamilyName: () => string;
+    getImageUrl: () => string;
+    getEmail: () => string;
+  };
+  isSignedIn: () => boolean;
+  hasGrantedScopes: (scopes: string) => boolean;
+}
+
+// Extend the Window interface to include Google API types
+declare global {
+  interface Window {
+    gapi: {
+      load: (module: string, callback: () => void) => void;
+      auth2: {
+        init: (config: {
+          client_id: string;
+          cookie_policy?: string;
+          scope?: string;
+          fetch_basic_profile?: boolean;
+        }) => Promise<GoogleAuthInstance>;
+        getAuthInstance: () => GoogleAuthInstance;
+      };
+    };
+  }
+}
+
+// Re-export types for convenience
+export type { User, Course, Coursework, StudentDashboard, TeacherCourseSummary, AuthResponse, Notification };
 
 class ApiClient {
-  private client: AxiosInstance;
+  private readonly client: AxiosInstance;
 
-  constructor(baseURL?: string) {
-    // Usar la URL del parámetro, luego la de las variables de entorno, o localhost como último recurso
-    let resolvedBaseURL = baseURL || import.meta.env.VITE_API_BASE_URL;
+  constructor(baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080') {
+    // Usar la URL del parámetro, luego la de las variables de entorno, o localhost:8080 como último recurso
+    let resolvedBaseURL = baseURL || import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
     
     // Asegurarse de que la URL base termine con /api si es necesario
     if (resolvedBaseURL && !resolvedBaseURL.endsWith('/')) {
       resolvedBaseURL = `${resolvedBaseURL}/api`;
     } else if (resolvedBaseURL) {
       resolvedBaseURL = `${resolvedBaseURL}api`;
-    } else {
-      resolvedBaseURL = 'http://localhost:5000/api'; // Valor por defecto para desarrollo
     }
     
     console.log('API Base URL:', resolvedBaseURL);
@@ -23,19 +83,21 @@ class ApiClient {
       baseURL: resolvedBaseURL,
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
       },
-      timeout: 10000, // 10 segundos de timeout
+      timeout: 30000, // Aumentado a 30 segundos
+      withCredentials: true, // Importante para cookies de autenticación
     });
 
     this.setupInterceptors();
   }
 
-  private setupInterceptors() {
-    // Request interceptor to add auth token
+  private setupInterceptors(): void {
     this.client.interceptors.request.use(
-      (config) => {
-        const token = localStorage.getItem('auth_token');
+      (config: InternalAxiosRequestConfig) => {
+        const token = localStorage.getItem('token');
         if (token) {
+          config.headers = config.headers || {};
           config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
@@ -43,13 +105,11 @@ class ApiClient {
       (error) => Promise.reject(error)
     );
 
-    // Response interceptor to handle errors
     this.client.interceptors.response.use(
       (response) => response,
       (error) => {
         if (error.response?.status === 401) {
-          localStorage.removeItem('auth_token');
-          localStorage.removeItem('user');
+          localStorage.removeItem('token');
           window.location.href = '/login';
         }
         return Promise.reject(error);
@@ -57,68 +117,71 @@ class ApiClient {
     );
   }
 
-  public setAuthToken(token: string) {
-    localStorage.setItem('auth_token', token);
-    this.client.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  // Auth methods
+  async login(email: string, password: string): Promise<AuthResponse> {
+    const response = await this.client.post<AuthResponse>('/auth/login', { email, password });
+    return response.data;
   }
 
-  public clearAuthToken() {
-    localStorage.removeItem('auth_token');
-    delete this.client.defaults.headers.common['Authorization'];
+  logout(): void {
+    localStorage.removeItem('token');
   }
 
-  public get isAuthenticated(): boolean {
-    return !!localStorage.getItem('auth_token');
+  async googleLogin(): Promise<{ url: string }> {
+    const response = await this.client.get<{ url: string }>('/auth/google');
+    return response.data;
   }
 
-  // Auth endpoints
-  public async googleLogin(): Promise<AxiosResponse<{ url: string }>> {
-    return this.client.get('/auth/google');
+  async googleCallback(code: string): Promise<AuthResponse> {
+    const response = await this.client.get<AuthResponse>(`/auth/oauth2/callback?code=${code}`);
+    return response.data;
   }
 
-  public async googleCallback(code: string): Promise<AxiosResponse<{ token: string; user: User; expiresIn: number }>> {
-    return this.client.get('/auth/oauth2/callback', { params: { code } });
+  // User methods
+  async getCurrentUser(): Promise<User> {
+    const response = await this.client.get<User>('/auth/me');
+    return response.data;
   }
 
-  // User endpoints
-  public async getCurrentUser(): Promise<AxiosResponse<User>> {
-    return this.client.get('/api/me');
+  // Course methods
+  async getCourses(): Promise<Course[]> {
+    const response = await this.client.get<Course[]>('/courses');
+    return response.data;
   }
 
-  // Course endpoints
-  public async getCourses(): Promise<AxiosResponse<Course[]>> {
-    return this.client.get('/api/courses');
-  }
-
-  public async getCoursework(courseId: string): Promise<AxiosResponse<Coursework[]>> {
-    return this.client.get(`/api/courses/${courseId}/coursework`);
+  async getCoursework(courseId: string): Promise<Coursework[]> {
+    const response = await this.client.get<Coursework[]>(`/api/courses/${courseId}/coursework`);
+    return response.data;
   }
 
   // Dashboard endpoints
-  public async getStudentDashboard(): Promise<AxiosResponse<StudentDashboard>> {
-    return this.client.get('/api/dashboard/alumno');
+  async getStudentDashboard(): Promise<StudentDashboard> {
+    const response = await this.client.get<StudentDashboard>('/api/dashboard/alumno');
+    return response.data;
+  }
+  async getTeacherDashboard(): Promise<TeacherCourseSummary[]> {
+    const response = await this.client.get<TeacherCourseSummary[]>('/api/dashboard/profesor');
+    return response.data;
   }
 
-  public async getTeacherDashboard(): Promise<AxiosResponse<TeacherCourseSummary[]>> {
-    return this.client.get('/api/dashboard/profesor');
+  // Notification methods
+  async sendNotification(message: string, userEmail: string): Promise<{ success: boolean }> {
+    const response = await this.client.post<{ success: boolean }>('/notifications', { message, userEmail });
+    return response.data;
   }
 
-  // Notification endpoints
-  public async sendNotification(message: string, userEmail: string): Promise<AxiosResponse<void>> {
-    return this.client.post('/api/notifications/send', { message, userEmail });
+  async getNotifications(userEmail: string): Promise<Notification[]> {
+    const response = await this.client.get<Notification[]>(`/notifications?userEmail=${encodeURIComponent(userEmail)}`);
+    return response.data;
   }
 
-  public async getNotifications(): Promise<AxiosResponse<Notification[]>> {
-    return this.client.get('/api/notifications');
-  }
-
-  public async markNotificationAsRead(id: number): Promise<AxiosResponse<void>> {
-    return this.client.patch(`/api/notifications/${id}/read`);
+  async markNotificationAsRead(id: number): Promise<{ success: boolean }> {
+    const response = await this.client.patch<{ success: boolean }>(`/notifications/${id}/read`, {});
+    return response.data;
   }
 }
 
 // Create a singleton instance
 const apiClient = new ApiClient();
-
 export default apiClient;
 export { ApiClient };
