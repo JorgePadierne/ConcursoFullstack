@@ -236,7 +236,7 @@ app.UseAuthorization();
 app.MapHealthChecks("/health");
 
 // Root endpoint - redirect to frontend (handles both GET and HEAD)
-app.MapGet("/", () => Results.Redirect("https://concursofullstack.onrender.com"));
+app.MapGet("/", () => Results.Redirect("https://concurso-fullstack.vercel.app"));
 
 // Debug endpoint - check environment variables (remove in production)
 app.MapGet("/debug/env", (IConfiguration config) =>
