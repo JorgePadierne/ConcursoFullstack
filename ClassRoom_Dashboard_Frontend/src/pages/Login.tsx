@@ -120,37 +120,39 @@ const Login: React.FC = () => {
     handleGoogleCallback();
   }, [searchParams, login, navigate]);
   const handleGoogleLogin = () => {
-    const clientId = (import.meta.env.VITE_GOOGLE_CLIENT_ID as string) || "";
-    const redirectUri =
-      (import.meta.env.VITE_GOOGLE_REDIRECT_URI as string) || "/login";
-    const scope = encodeURIComponent(
-      [
-        "openid",
-        "email",
-        "profile",
-        "https://www.googleapis.com/auth/classroom.courses.readonly",
-        "https://www.googleapis.com/auth/classroom.rosters.readonly",
-        "https://www.googleapis.com/auth/classroom.coursework.me",
-        "https://www.googleapis.com/auth/classroom.coursework.students",
-        "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly",
-      ].join(" ")
-    );
-
-    if (clientId) {
-      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(
-        clientId
-      )}&response_type=code&scope=${scope}&redirect_uri=${encodeURIComponent(
-        redirectUri
-      )}&access_type=offline&prompt=consent`;
-      window.location.href = authUrl;
+    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID as string;
+    const redirectUri = `${window.location.origin}/login`; // This will point to your frontend's login page
+    
+    if (!clientId) {
+      setError("Google Client ID no configurado");
       return;
     }
 
-    // Fallback: use backend endpoint if client id is not provided in the frontend
-    const base =
-      (import.meta.env.VITE_API_BASE_URL as string) ||
-      "https://concursofullstack.onrender.com";
-    window.location.href = `${base}/auth/google`;
+    const scope = encodeURIComponent(
+      "openid email profile " +
+      "https://www.googleapis.com/auth/classroom.courses.readonly " +
+      "https://www.googleapis.com/auth/classroom.rosters.readonly " +
+      "https://www.googleapis.com/auth/classroom.coursework.me " +
+      "https://www.googleapis.com/auth/classroom.coursework.students " +
+      "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly"
+    );
+
+    console.log('Initiating Google OAuth with:', {
+      clientId,
+      redirectUri,
+      scope: decodeURIComponent(scope)
+    });
+
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
+      `client_id=${encodeURIComponent(clientId)}` +
+      `&redirect_uri=${encodeURIComponent(redirectUri)}` +
+      `&response_type=code` +
+      `&scope=${scope}` +
+      `&access_type=offline` +
+      `&prompt=consent`;
+
+    console.log('Redirecting to Google OAuth URL:', authUrl);
+    window.location.href = authUrl;
   };
 
   // Mostrar estado de carga
