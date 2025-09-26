@@ -162,13 +162,17 @@ namespace Classroom_Dashboard_Backend.Controllers
             var redirectUri = _config["Google:RedirectUri"];
 
             // Log the values being used (except sensitive ones in production)
-            Console.WriteLine($"Exchanging code. Redirect URI: {redirectUri}");
-            Console.WriteLine($"Client ID: {clientId}");
-            Console.WriteLine($"Code: {!string.IsNullOrEmpty(code)}"); // Just log if code exists, not the actual value
+            Console.WriteLine($"[ExchangeCodeAsync] Starting token exchange...");
+            Console.WriteLine($"[ExchangeCodeAsync] Redirect URI: {redirectUri}");
+            Console.WriteLine($"[ExchangeCodeAsync] Client ID: {clientId}");
+            Console.WriteLine($"[ExchangeCodeAsync] Code received: {!string.IsNullOrEmpty(code)}");
+            Console.WriteLine($"[ExchangeCodeAsync] Code length: {code?.Length ?? 0} characters");
 
             if (string.IsNullOrEmpty(clientId) || string.IsNullOrEmpty(clientSecret) || string.IsNullOrEmpty(redirectUri))
             {
-                throw new Exception("Missing required Google OAuth configuration");
+                var errorMsg = "Missing required Google OAuth configuration. Check if all required settings are in appsettings.json";
+                Console.WriteLine($"[ExchangeCodeAsync] {errorMsg}");
+                throw new Exception(errorMsg);
             }
 
             using var http = new HttpClient();
@@ -181,50 +185,166 @@ namespace Classroom_Dashboard_Backend.Controllers
                 { "grant_type", "authorization_code" }
             };
 
+            // Log the request body (without sensitive data)
+            var loggableBody = new Dictionary<string, string>(body)
+            {
+                ["client_secret"] = "[REDACTED]",
+                ["code"] = $"{code?.Substring(0, Math.Min(10, code?.Length ?? 0))}..."
+            };
+            Console.WriteLine($"[ExchangeCodeAsync] Request body: {System.Text.Json.JsonSerializer.Serialize(loggableBody)}");
+
             try
             {
                 var content = new FormUrlEncodedContent(body);
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://oauth2.googleapis.com/token")
+                var tokenUrl = "https://oauth2.googleapis.com/token";
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, tokenUrl)
                 {
                     Content = content
                 };
 
-                Console.WriteLine("Sending token request to Google...");
-                var resp = await http.SendAsync(requestMessage);
+                Console.WriteLine($"[ExchangeCodeAsync] Sending POST request to: {tokenUrl}");
                 
-                var responseContent = await resp.Content.ReadAsStringAsync();
-                Console.WriteLine($"Google response status: {resp.StatusCode}");
-                Console.WriteLine($"Google response: {responseContent}");
+                // Add a timeout to prevent hanging
+                var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+                var response = await http.SendAsync(requestMessage, cts.Token);
                 
-                if (!resp.IsSuccessStatusCode)
+                var responseContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"[ExchangeCodeAsync] Google response status: {(int)response.StatusCode} {response.StatusCode}");
+                Console.WriteLine($"[ExchangeCodeAsync] Google response headers: {string.Join(", ", response.Headers.Select(h => $"{h.Key}: {string.Join(", ", h.Value.ToArray())}"))}");
+                Console.WriteLine($"[ExchangeCodeAsync] Google response content: {responseContent}");
+                
+                if (!response.IsSuccessStatusCode)
                 {
-                    throw new HttpRequestException($"Failed to exchange code for token. Status: {resp.StatusCode}, Response: {responseContent}");
+                    var errorMessage = $"Failed to exchange code for token. Status: {(int)response.StatusCode} {response.StatusCode}";
+                    Console.WriteLine($"[ExchangeCodeAsync] {errorMessage}");
+                    
+                    // Try to parse the error response for more details
+                    try
+                    {
+                        var errorResponse = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(responseContent);
+                        if (errorResponse != null && errorResponse.ContainsKey("error"))
+                        {
+                            errorMessage += $"\nError: {errorResponse["error"]}";
+                            if (errorResponse.ContainsKey("error_description"))
+                            {
+                                errorMessage += $"\nDescription: {errorResponse["error_description"]}";
+                            }
+                        }
+                    }
+                    catch (Exception jsonEx)
+                    {
+                        Console.WriteLine($"[ExchangeCodeAsync] Error parsing error response: {jsonEx}");
+                    }
+                    
+                    throw new HttpRequestException(errorMessage);
                 }
                 
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 var tokenResponse = JsonSerializer.Deserialize<TokenResponse>(responseContent, options);
                 
-                if (tokenResponse == null || string.IsNullOrEmpty(tokenResponse.AccessToken))
+                if (tokenResponse == null)
                 {
-                    throw new Exception("Failed to deserialize token response or access token is missing");
+                    var errorMsg = "Failed to deserialize token response: response is null";
+                    Console.WriteLine($"[ExchangeCodeAsync] {errorMsg}");
+                    throw new Exception(errorMsg);
                 }
                 
+                if (string.IsNullOrEmpty(tokenResponse.AccessToken))
+                {
+                    var errorMsg = "Access token is missing from the response";
+                    Console.WriteLine($"[ExchangeCodeAsync] {errorMsg}");
+                    throw new Exception(errorMsg);
+                }
+                
+                Console.WriteLine($"[ExchangeCodeAsync] Successfully obtained access token. Expires in: {tokenResponse.ExpiresIn} seconds");
                 return tokenResponse;
+            }
+            catch (OperationCanceledException ex) when (ex is TaskCanceledException tce && tce.InnerException is TimeoutException)
+            {
+                var errorMsg = "Request to Google OAuth server timed out";
+                Console.WriteLine($"[ExchangeCodeAsync] {errorMsg}");
+                throw new TimeoutException(errorMsg, ex);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error exchanging code for token: {ex}");
-                throw; // Re-throw to be handled by the caller
+                Console.WriteLine($"[ExchangeCodeAsync] Error exchanging code for token: {ex}");
+                throw new Exception($"Error exchanging authorization code for token: {ex.Message}", ex);
             }
         }
 
         // Paso 5: Obtener info básica del usuario
         private async Task<UserInfo> GetUserInfoAsync(string accessToken)
         {
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                throw new ArgumentException("Access token cannot be null or empty", nameof(accessToken));
+            }
+
+            Console.WriteLine($"[GetUserInfoAsync] Getting user info with access token: {accessToken.Substring(0, Math.Min(10, accessToken.Length))}...");
+            
             using var http = new HttpClient();
-            http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
-            var resp = await http.GetStringAsync("https://www.googleapis.com/oauth2/v2/userinfo");
-            return JsonSerializer.Deserialize<UserInfo>(resp, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            try
+            {
+                var userInfoUrl = "https://www.googleapis.com/oauth2/v2/userinfo";
+                var request = new HttpRequestMessage(HttpMethod.Get, userInfoUrl);
+                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
+                
+                // Add a timeout to prevent hanging
+                var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+                var response = await http.SendAsync(request, cts.Token);
+                
+                var responseContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"[GetUserInfoAsync] User info response status: {(int)response.StatusCode} {response.StatusCode}");
+                
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorMessage = $"Failed to get user info. Status: {(int)response.StatusCode} {response.StatusCode}";
+                    Console.WriteLine($"[GetUserInfoAsync] {errorMessage}");
+                    Console.WriteLine($"[GetUserInfoAsync] Response content: {responseContent}");
+                    
+                    // Try to parse the error response for more details
+                    try
+                    {
+                        var errorResponse = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(responseContent);
+                        if (errorResponse != null && errorResponse.ContainsKey("error"))
+                        {
+                            errorMessage += $"\nError: {errorResponse["error"]}";
+                            if (errorResponse.ContainsKey("error_description"))
+                            {
+                                errorMessage += $"\nDescription: {errorResponse["error_description"]}";
+                            }
+                        }
+                    }
+                    catch (Exception jsonEx)
+                    {
+                        Console.WriteLine($"[GetUserInfoAsync] Error parsing error response: {jsonEx}");
+                    }
+                    
+                    throw new HttpRequestException(errorMessage);
+                }
+                
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var userInfo = JsonSerializer.Deserialize<UserInfo>(responseContent, options);
+                
+                if (userInfo == null)
+                {
+                    throw new Exception("Failed to deserialize user info response");
+                }
+                
+                Console.WriteLine($"[GetUserInfoAsync] Successfully retrieved user info for: {userInfo.Email}");
+                return userInfo;
+            }
+            catch (OperationCanceledException ex) when (ex is TaskCanceledException tce && tce.InnerException is TimeoutException)
+            {
+                var errorMsg = "Request to Google UserInfo endpoint timed out";
+                Console.WriteLine($"[GetUserInfoAsync] {errorMsg}");
+                throw new TimeoutException(errorMsg, ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[GetUserInfoAsync] Error getting user info: {ex}");
+                throw new Exception($"Error getting user information: {ex.Message}", ex);
+            }
         }
 
         // Paso 6: Generar JWT
