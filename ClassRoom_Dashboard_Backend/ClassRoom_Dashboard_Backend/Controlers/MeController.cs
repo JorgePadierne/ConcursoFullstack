@@ -14,11 +14,29 @@ namespace Classroom_Dashboard_Backend.Controllers
         public MeController(ClassroomDBContext db) { _db = db; }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             var email = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? User.FindFirstValue(ClaimTypes.Email) ?? User.FindFirstValue("sub");
-            var role = User.FindFirstValue(ClaimTypes.Role) ?? User.FindFirstValue("role") ?? "student";
-            return Ok(new { email, role });
+            if (string.IsNullOrEmpty(email))
+                return Unauthorized();
+
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+                return NotFound();
+
+            // Crear DTO para evitar problemas de serialización
+            var userDto = new
+            {
+                id = user.Id,
+                email = user.Email,
+                name = user.Name,
+                role = user.Role,
+                googleRefreshToken = user.GoogleRefreshToken,
+                googleAccessToken = user.GoogleAccessToken,
+                tokenExpiry = user.TokenExpiry
+            };
+
+            return Ok(userDto);
         }
     }
 }

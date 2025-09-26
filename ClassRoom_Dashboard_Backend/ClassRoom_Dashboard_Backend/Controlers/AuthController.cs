@@ -97,7 +97,20 @@ namespace Classroom_Dashboard_Backend.Controllers
             // Paso 3d: Generar JWT para frontend
             var jwt = GenerateJwt(user);
 
-            return Ok(new { token = jwt });
+            // Crear DTO para evitar problemas de serialización
+            var userDto = new
+            {
+                id = user.Id,
+                email = user.Email,
+                name = user.Name,
+                role = user.Role,
+                googleRefreshToken = user.GoogleRefreshToken,
+                googleAccessToken = user.GoogleAccessToken,
+                tokenExpiry = user.TokenExpiry
+            };
+
+            return Ok(new { token = jwt, user = userDto, expiresIn = 7200 });
+        }
         }
 
         // Paso 4: Intercambiar code por token
