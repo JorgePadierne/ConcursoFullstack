@@ -111,7 +111,6 @@ namespace Classroom_Dashboard_Backend.Controllers
 
             return Ok(new { token = jwt, user = userDto, expiresIn = 7200 });
         }
-        }
 
         // Paso 4: Intercambiar code por token
         private async Task<TokenResponse> ExchangeCodeAsync(string code)
